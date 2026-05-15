@@ -1,0 +1,115 @@
+flowchart TB
+    %% WMS Operating Architecture Topology
+
+    subgraph top["Top Layer"]
+        ben["Ben / Executive Operator"]
+        dashboard["Weekly Operator Dashboard"]
+        linearOPE["Linear OPE Workspace"]
+    end
+
+    subgraph framework["Strategic Framework"]
+        lucid["Lucid / Customer Journey Blueprint"]
+        lifecycle["Reusable Lifecycle Framework<br/>Target -> Attract -> Capture -> Engage -> Offer -> Close -> Delivery -> Impress -> Multiply"]
+    end
+
+    subgraph operatingSystem["Version-Controlled Operating System"]
+        github["GitHub repo<br/>wms-operating-system"]
+        docs["WMS Operating Docs"]
+        sops["SOP Documentation"]
+        ghlMaps["GoHighLevel Maps"]
+        linearPlans["Linear Plans / Templates"]
+    end
+
+    subgraph execution["Execution Systems"]
+        linear["Linear<br/>Project / task execution"]
+        ghl["GoHighLevel<br/>CRM, pipelines, workflows, forms, calendars"]
+        codex["Codex<br/>Primary build / documentation operator"]
+        openclaw["OpenClaw<br/>Escalation + browser automation"]
+    end
+
+    subgraph sharedTools["Shared System Tools"]
+        ms365["Microsoft 365<br/>Domains, email, docs"]
+        deploy["Vercel / GitHub<br/>Websites and app deployment"]
+        marketplaces["Amazon / Walmart<br/>Marketplace channels"]
+    end
+
+    subgraph lanes["Business Lanes"]
+        wms["WMS"]
+        commerce["Arzen Commerce / ShopRite growth vehicle"]
+        arzenLLC["Arzen LLC / Dragon Balm protected seller account"]
+        kinetic["Kinetic Moto"]
+        driver["Driver Network"]
+        cannabis["Cannabis Ops"]
+        proletariat["Proletariat admin / billing"]
+    end
+
+    ben --> dashboard
+    dashboard --> linearOPE
+    linearOPE --> linear
+
+    lucid --> lifecycle
+    lifecycle --> docs
+    docs --> github
+    sops --> github
+    ghlMaps --> github
+    linearPlans --> github
+
+    github --> linear
+    github --> ghl
+
+    linear --> dashboard
+    ghl --> dashboard
+
+    codex --> docs
+    codex --> github
+    codex --> linear
+    codex --> ghlMaps
+    codex -. "Escalate only when browser automation or complex task execution is needed" .-> openclaw
+    openclaw --> linear
+    openclaw --> ghl
+    openclaw --> deploy
+
+    ghl --> wms
+    ghl --> commerce
+    ghl --> arzenLLC
+    ghl --> kinetic
+    ghl --> driver
+    ghl --> cannabis
+    ghl --> proletariat
+
+    lifecycle --> wms
+    lifecycle --> commerce
+    lifecycle --> arzenLLC
+    lifecycle --> kinetic
+    lifecycle --> driver
+    lifecycle --> cannabis
+    lifecycle --> proletariat
+
+    ms365 --> wms
+    ms365 --> commerce
+    ms365 --> arzenLLC
+    ms365 --> kinetic
+    ms365 --> driver
+    ms365 --> cannabis
+    ms365 --> proletariat
+
+    deploy --> commerce
+    deploy --> kinetic
+    deploy --> driver
+    deploy --> wms
+
+    marketplaces --> commerce
+    marketplaces --> arzenLLC
+
+    classDef operator fill:#17324d,stroke:#0b1724,color:#ffffff
+    classDef framework fill:#244f5f,stroke:#17324d,color:#ffffff
+    classDef system fill:#f2f6f8,stroke:#78909c,color:#102027
+    classDef lane fill:#fff8e1,stroke:#b08b00,color:#2b2110
+    classDef tool fill:#e8f5e9,stroke:#4f8f52,color:#102a12
+
+    class ben,dashboard,linearOPE operator
+    class lucid,lifecycle framework
+    class github,docs,sops,ghlMaps,linearPlans system
+    class linear,ghl,codex,openclaw,ms365,deploy,marketplaces tool
+    class wms,commerce,arzenLLC,kinetic,driver,cannabis,proletariat lane
+
